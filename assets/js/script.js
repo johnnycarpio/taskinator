@@ -225,6 +225,17 @@ var saveTasks = function() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+var loadTasks = function() {
+    // reassign the tasks variable to what localStorage returns
+    var loadedTask = localStorage.getItem('tasks');
+    console.log('tasks', JSON.parse(loadedTask));
+
+    for (var i = 0; i < tasks.length; i++) {
+        console.log(tasks[i]);
+    }
+
+}
+
     // Create a new task
     formEl.addEventListener("submit", taskFormHandler);
 
@@ -233,3 +244,5 @@ var saveTasks = function() {
 
     // for changing the status
     pageContentEl.addEventListener("change", taskStatusChangeHandler);
+
+    loadTasks();
